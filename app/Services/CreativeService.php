@@ -5,14 +5,14 @@ namespace App\Services;
 
 
 use App\Models\Creative;
-use App\Models\ProductType;
 use App\Services\Interfaces\ICreativeService;
+use App\Services\Interfaces\IProductService;
 
 class CreativeService implements ICreativeService
 {
     use ServiceTrait;
 
-    public function __construct()
+    public function __construct(private IProductService $productService)
     {
         $this->model = Creative::class;
     }
@@ -36,20 +36,17 @@ class CreativeService implements ICreativeService
     {
         $data['user_id'] = $userId;
         $creative = Creative::create($data);
-        // TODO modify productTypes
-//        foreach ($data['product_types'] as $productType) {
-//            $productType = ProductType::whereIn('slug', $productType);
-//
-//        }
+        foreach ($data['products'] as $product) {
+            $product['creative_id'] = $creative->id;
+            $product['user_id'] = $userId;
+            $products[] = $this->productService->createProduct($product);
+        }
         return $creative;
     }
 
     public function updateCreative(Creative $creative, array $data): ?Creative
     {
         $creative->update($data);
-
-        // TODO modify productTypes
-
         return $creative;
     }
 

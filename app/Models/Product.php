@@ -11,6 +11,7 @@ class Product extends Pivot
     protected $with = ['creative', 'productType.productTypeVendor'];
 
     protected $fillable = [
+        'slug',
         'custom_name',
         'custom_description',
         'sku',
