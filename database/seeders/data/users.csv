@@ -1,0 +1,4 @@
+"id","name","email","email_verified_at","password","remember_token","created_at","updated_at"
+1,"Claude Monet","claude@example.com","2021-03-26 04:10:15.19","password",,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+2,"Banksy","banksy@example.com","2021-03-26 04:10:15.19","password",,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+3,"Jill Frost","jill@example.com","2021-03-26 04:10:15.19","password",,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"

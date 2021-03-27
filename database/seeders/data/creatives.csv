@@ -1,0 +1,4 @@
+"id","slug","name","description","image_url","user_id","created_at","updated_at"
+1,"the-water-lilies","The Water Lilies","Impressionist Painting of water lilies.","https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Claude_Monet_-_The_Water_Lilies_-_Setting_Sun_-_Google_Art_Project.jpg/1280px-Claude_Monet_-_The_Water_Lilies_-_Setting_Sun_-_Google_Art_Project.jpg",1,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+2,"balloon-girl","Balloon Girl","Graffiti stencil mural of a young girl with her hand extended toward a red heart-shaped balloon.","https://upload.wikimedia.org/wikipedia/commons/0/0c/Banksy_Girl_and_Heart_Balloon_%282840632113%29.jpg",2,"2021-03-26 04:11:15.19","2021-03-26 04:11:15.19"
+3,"default","default","default","https://upload.wikimedia.org/wikipedia/commons/default.jpg",3,"2021-03-26 04:11:15.19","2021-03-26 04:11:15.19"

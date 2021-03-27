@@ -1,0 +1,6 @@
+"id","slug","custom_name","custom_description","sku","price","creative_id","product_type_id","created_at","updated_at"
+1,"banksy-shirt","Banksy Shirt","A Banksy street art tee shirt.","abc123",10,2,1,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+2,"lily-shirt","Lily Shirt","A Lily impressionist painting tee shirt.","abc125",11,1,1,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+3,"banksy-print","Banksy Print","A Banksy street art fine art print.","abc124",11,2,2,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+4,"lily-print","Lily Print","A Lily impressionist painting fine art print.","abc126",12,1,2,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+5,"default-print","Default Print","Default painting fine art print.","Default789456",12,3,2,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"

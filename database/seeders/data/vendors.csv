@@ -1,0 +1,4 @@
+"id","name","slug","address","city","state","postal_code","created_at","updated_at"
+1,"DreamJunction","dream-junction","100 State St","Chicago","IL","60101","2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+2,"Marco Fine Arts","marco-fine-arts","100 Folsom St","San Francisco","CA","94105","2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+3,"default","default","100 5th Ave","New York","NY","10285","2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"

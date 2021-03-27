@@ -1,0 +1,4 @@
+"id","ship_to_first_name","ship_to_last_name","ship_to_address_1","ship_to_address_2","ship_to_postal_code","ship_to_city","ship_to_state","ship_to_country","bill_to_first_name","bill_to_last_name","bill_to_address_1","bill_to_address_2","bill_to_postal_code","bill_to_city","bill_to_state","bill_to_country","user_id","created_at","updated_at"
+1,"Claude","Monet","300 N Michigan Ave",,"60504","Chicago","IL","US","Claude","Monet","300 N Michigan Ave",,"60504","Chicago","IL","US",1,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+2,"Banksy","","300 N Michigan Ave",,"60504","Chicago","IL","US","Banksy","","300 N Michigan Ave",,"60504","Chicago","IL","US",2,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
+3,"Jill","Frost","300 N Michigan Ave",,"60504","Chicago","IL","US","Jill","Frost","300 N Michigan Ave",,"60504","Chicago","IL","US",3,"2021-03-26 04:10:15.19","2021-03-26 04:10:15.19"
