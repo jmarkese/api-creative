@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Product extends Pivot
+class Product extends Model
 {
     protected $table = 'products';
-    protected $with = ['creative', 'productType.productTypeVendor'];
+//    protected $with = ['creative', 'productType.productTypeVendor'];
 
     protected $fillable = [
         'slug',

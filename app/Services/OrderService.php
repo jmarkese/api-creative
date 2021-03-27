@@ -24,7 +24,8 @@ class OrderService implements IOrderService
                     $query->where('vendor_id', $vendorId)
                         ->where('flag_is_shipped', false);
                 },
-                'orderLineItems.product',
+                'orderLineItems.product.creative',
+                'orderLineItems.product.productType.productTypeVendor',
             ])
             ->whereHas('orderLineItems', function($query) use ($vendorId){
                 $query->where('vendor_id', $vendorId)

@@ -19,17 +19,17 @@ class CreativeService implements ICreativeService
 
     public function getCreativesByUserId(int $userId): array
     {
-        return Creative::where('user_id', $userId)->get()->toArray();
+        return Creative::with('products')->where('user_id', $userId)->get()->toArray();
     }
 
     public function getCreativeById(int $id): Creative
     {
-        return Creative::find($id);
+        return Creative::with('products')->find($id);
     }
 
     public function getCreativeByUserIdAndId(int $id, int $userId): ?Creative
     {
-        return Creative::where('user_id', $userId)->find($id);
+        return Creative::with('products')->where('user_id', $userId)->find($id);
     }
 
     public function createCreative(array $data, int $userId): ?Creative
@@ -41,7 +41,7 @@ class CreativeService implements ICreativeService
             $product['user_id'] = $userId;
             $products[] = $this->productService->createProduct($product);
         }
-        return $creative;
+        return Creative::with('products')->findOrFail($creative->id);
     }
 
     public function updateCreative(Creative $creative, array $data): ?Creative
@@ -53,9 +53,6 @@ class CreativeService implements ICreativeService
     public function updateCreativeByUserIdAndId(Creative $creative, int $userId, array $data): ?Creative
     {
         $creative->update($data);
-
-        // TODO modify productTypes
-
         return $creative;
     }
 

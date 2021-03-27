@@ -19,7 +19,7 @@ class Creative extends Model
 
     public function products()
     {
-        return $this->belongsTo(Product::class, 'id', 'creative_id');
+        return $this->hasMany(Product::class);
     }
 
     public function user()
