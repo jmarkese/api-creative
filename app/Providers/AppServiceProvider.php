@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\OutputFormatters\IOutputFormatterFactory;
+use App\OutputFormatters\OutputFormatterFactory;
 use App\Services\CreativeService;
 use App\Services\Interfaces\ICreativeService;
 use App\Services\Interfaces\IOrderLineItemService;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IProductTypeService::class, ProductTypeService::class);
         $this->app->bind(IProductTypeVendorService::class, ProductTypeVendorService::class);
         $this->app->bind(IVendorService::class, VendorService::class);
+        $this->app->bind(IOutputFormatterFactory::class, OutputFormatterFactory::class);
     }
 
     /**

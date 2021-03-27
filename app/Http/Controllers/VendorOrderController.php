@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\OutputFormatters\IOutputFormatterFactory;
 use App\OutputFormatters\Order\OrderOutputFormatterFactory;
 use App\Services\Interfaces\IOrderService;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class VendorOrderController extends Controller
     /**
      * VendorOrderController constructor.
      */
-    public function __construct(private IOrderService $orderService)
+    public function __construct(private IOrderService $orderService, private IOutputFormatterFactory $outputFormatterFactory)
     {
     }
 
@@ -27,7 +28,7 @@ class VendorOrderController extends Controller
         // You would normally get this from a JWT claim or Client ID lookup
         $vendorId = $request->header('X-Vendor-Id');
         $orders = $this->orderService->getVendorOpenOrdersByVendorSlug($vendorId);
-        $outputFormatter = OrderOutputFormatterFactory::make($vendorId);
+        $outputFormatter = $this->outputFormatterFactory->make($vendorId, "order");
         return response($outputFormatter->output($orders), 200)->header('Content-Type', $outputFormatter->contentType());
     }
 
