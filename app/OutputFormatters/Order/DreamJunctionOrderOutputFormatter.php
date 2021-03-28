@@ -24,22 +24,23 @@ class DreamJunctionOrderOutputFormatter implements IOutputFormatter
     public function output($data): string
     {
         $mapped = $this->mapData($data);
-        return $this->arrayToXml($mapped);
+        return (string) $this->arrayToXml($mapped, new SimpleXMLElement("<orders/>"));
     }
 
-    private function arrayToXml($data, $rootElement = null, $xml = null) {
-        $_xml = $xml;
-        if ($_xml === null) {
-            $_xml = new SimpleXMLElement($rootElement !== null ? $rootElement : "<orders/>");
-        }
+    private function arrayToXml($data, SimpleXMLElement $xml)
+    {
         foreach ($data as $k => $v) {
             if (is_array($v)) {
-                $this->arrayToXml($v, $k, $_xml->addChild($k));
+                if (is_numeric($k)) {
+                    $this->arrayToXml($v, $xml);
+                } else {
+                    $this->arrayToXml($v, $xml->addChild($k));
+                }
             } else {
-                $_xml->addChild($k, $v);
+                $xml->addChild($k, $v);
             }
         }
-        return $_xml->asXML();
+        return $xml->asXML();
     }
 
     /**
@@ -62,7 +63,6 @@ class DreamJunctionOrderOutputFormatter implements IOutputFormatter
                 return $this->mapOrderLineItem($item);
             })
             ->all();
-//        dd($orderLineItems);
 
         return [
             'order' => [
