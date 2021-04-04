@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreativeShowRequest;
+use App\Http\Requests\CreativeStoreRequest;
+use App\Http\Requests\CreativeUpdateRequest;
 use App\Models\Creative;
 use App\Services\Interfaces\ICreativeService;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CreativeController extends Controller
 {
@@ -15,13 +18,11 @@ class CreativeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // You would normally get this from a JWT claim or Client ID lookup
-        $userId = $request->header('X-User-Id');
+        $userId = auth()->user()->id;
         $creatives = $this->creativeService->getCreativesByUserId($userId);
         return response()->json($creatives);
     }
@@ -29,26 +30,26 @@ class CreativeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreativeStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreativeStoreRequest $request)
     {
-        $userId = $request->header('X-User-Id');
+        $userId = auth()->user()->id;
         $creative = $this->creativeService->createCreative($request->all(), $userId);
-        return response()->json($creative, 201);
+        return response()->json($creative, Response::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
+     * @param  CreativeShowRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function show($id, CreativeShowRequest $request)
     {
-        // You would normally get this from a JWT claim or Client ID lookup
-        $userId = $request->header('X-User-Id');
+        $userId = auth()->user()->id;
         $creative = $this->creativeService->getCreativeByUserIdAndId($id, $userId);
         return response()->json($creative);
     }
@@ -58,13 +59,13 @@ class CreativeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param  CreativeUpdateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Creative $creative, Request $request)
+    public function update(Creative $creative, CreativeUpdateRequest $request)
     {
-        // You would normally get this from a JWT claim or Client ID lookup
-        $userId = $request->header('X-User-Id');
-        $creative = $this->creativeService->updateCreativeByUserIdAndId($creative, $userId, $request->all());
-        return response()->json($creative);
+        $userId = auth()->user()->id;
+        $this->creativeService->updateCreativeByUserIdAndId($creative, $userId, $request->all());
+        return response(Response::HTTP_NO_CONTENT);
     }
 }

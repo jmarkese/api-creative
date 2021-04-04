@@ -18,16 +18,9 @@ interface IOrderService extends IService
     /**
      * @param int $id
      * @param array $data
-     * @return Order
+     * @return Order|null
      */
     public function updateVendorOrderById(int $id, array $data): ?Order;
-
-    /**
-     * @param Order $order
-     * @param array $data
-     * @return Order
-     */
-//    public function updateVendorOrder(Order $order, array $data): ?Order;
 
     /**
      * @param array $data

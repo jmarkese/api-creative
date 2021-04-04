@@ -19,4 +19,9 @@ class Vendor extends Model
         return $this->belongsTo(ProductTypeVendor::class);
     }
 
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
 }

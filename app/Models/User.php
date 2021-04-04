@@ -51,4 +51,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Creative::class);
     }
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
 }

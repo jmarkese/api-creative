@@ -21,14 +21,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('creative', CreativeController::class)->only([
+Route::middleware('auth:api')->resource('creative', CreativeController::class)->only([
     'index', 'show', 'store', 'update'
 ]);
 
-Route::resource('order', OrderController::class)->only([
+Route::middleware('auth:api')->resource('order', OrderController::class)->only([
     'store'
 ]);
 
-Route::resource('vendororder', VendorOrderController::class)->only([
+Route::middleware('auth:api')->resource('vendororder', VendorOrderController::class)->only([
     'index', 'update'
 ]);
